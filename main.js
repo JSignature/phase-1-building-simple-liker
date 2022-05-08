@@ -10,18 +10,16 @@ for (element of emptyHearts) {
    element.addEventListener("click", e => {
      mimicServerCall()
      .then(() => {
-      // if ((e.target.textContent = EMPTY_HEART) || (e.target.textContent = "&#x2661")){
-      //  console.log(e.target.textContent)
-      //   e.target.textContent = FULL_HEART
-      //   console.log(e.target.textContent)
-       
-       
-      // }
-      // else   {
-      //   e.target.textContent = EMPTY_HEART
-      // }
-     e.target.textContent = FULL_HEART
-      e.target.classList.toggle("activated-heart")
+      if ((e.target.textContent === EMPTY_HEART)){
+       console.log(e.target.textContent)
+        e.target.textContent = FULL_HEART
+        console.log(e.target.textContent)
+        e.target.classList.toggle("activated-heart")    
+      }
+      else   {
+        e.target.textContent = EMPTY_HEART
+        e.target.classList.toggle("activated-heart")
+      }
      })
      .catch((error) => {
        const errMessage = document.querySelector("#modal-message")
